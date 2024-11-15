@@ -17,6 +17,19 @@ app.use(function(req, res, next) {
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
+const mongoose = require('mongoose');
+mongoose.connect('mongodb+srv://admin:admin@cluster0.p5icq.mongodb.net/MyMovieDB');
+
+const movieSchema = new mongoose.Schema({
+    title: String,
+    year: String,
+    poster: String
+  });
+ 
+  const Movie = mongoose.model('Movie', movieSchema);
+
+
 //listens for port connection and url to be / then executes function
 app.get('/api/movies', (req, res) => {
     const movies = [
