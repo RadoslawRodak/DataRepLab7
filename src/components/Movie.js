@@ -6,7 +6,7 @@ const Movies = (props) => {
         movie) => {
 
         /* Returning a MovieItem component for each movie in the array */
-        return <MovieItem myMovie={movie} key={movie.imdbID} />
+        return <MovieItem myMovie={movie} key={movie._id} />
     }
     )
 };
